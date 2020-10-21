@@ -11311,6 +11311,8 @@ h5,
   right: 0;
   background: #000;
   opacity: 0.5;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 .owl-carousel.home-slider .slider-item .slider-text {
   color: #fff;
