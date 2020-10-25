@@ -11311,7 +11311,7 @@ h5,
   right: 0;
   background: #000;
   opacity: 0.5;
-  overflow-y: scroll;
+  overflow: overlay;
   -webkit-overflow-scrolling: touch;
 }
 .owl-carousel.home-slider .slider-item .slider-text {
@@ -12569,8 +12569,8 @@ textarea.form-control {
 .ftco-animate {
   opacity: 0;
   visibility: hidden;
-  overflow-y: scroll;
-  -webkit-overflow-scrolling: touch;
+  overflow: overlay;
+  -webkit-overflow-scrolling: touch
 }
 
 .bg-primary {
