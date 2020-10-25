@@ -11351,7 +11351,7 @@ h5,
 }
 .owl-carousel.home-slider .slider-item .slider-text h1 {
   text-transform: uppercase;
-  font-size: 7vw;
+  font-size: 4vw;
   color: #fcd307;
   line-height: 0.9;
   font-weight: normal;
@@ -11359,7 +11359,7 @@ h5,
   font-weight: 900;
 }
 .owl-carousel.home-slider .slider-item .slider-text h1 span {
-  font-size: 16vw;
+  font-size: 8vw;
   display: block;
   -webkit-text-fill-color: transparent;
   /* Will override color (regardless of order) */

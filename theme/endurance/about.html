@@ -51,6 +51,99 @@
     <link rel="stylesheet" href="css/style.css" />
     <style>
 
+      /* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.sprev, .snext {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.snext {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.sprev:hover, .snext:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.stext {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.snumbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.sdot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.sactive, .sdot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.sfade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .sprev, .snext,.stext {font-size: 11px}
+}
+
  
 
     </style>
@@ -161,7 +254,7 @@
             <h1 class="mb-3 bread">About Me</h1>
             <p class="breadcrumbs">
               <span class="mr-2"><a href="home.html">Home</a></span>
-              <span>About Me</span>
+              <span class="mr-2"><a href="contact.html">Contact Me</a></span>
               <ul  style="margin-right: 3em;" class="ftco-footer-social">
                 <li class="ftco-animate"><a href="https://www.facebook.com/simonefitnesschef-109031230474478/" style="background-color: #fcd307;"><span class="icon-facebook" style="color: white;"></span></a></li>
                 <li class="ftco-animate"><a href="https://www.instagram.com/simonefitnesschef" style="background-color: #fcd307;"><span class="icon-instagram" style="color: white;"></span></a></li>
@@ -210,14 +303,62 @@
               <a
                 href="images/blog-1.jpg"
                 class="thumb img image-popup"
-                style="background-image: url(images/blog-1.jpg)"
+                style="background-image: url(images/blog-1.jpg);"
+              ></a>
+            </div>
+            <div class="thumb-wrap d-flex">
+              <a
+                href="images/Certificate6.jpeg"
+                class="thumb img image-popup"
+                style="background-image: url(images/Certificate6.jpeg);
+                background-position: center -9px;"
+              ></a>
+              <a
+                href="images/Certificate5.jpeg"
+                class="thumb img image-popup" 
+                style="background-image: url(images/Certificate5.jpeg);"
+              ></a>
+              <a
+                href="images/Certificate4.jpeg"
+                class="thumb img image-popup"
+                style="background-image: url(images/Certificate4.jpeg);"
               ></a>
             </div>
             <div class="px-md-5 px-3 py-4 quotation">
               <i class=" fa fa-quote-right " style="color:#fcd307"></i>
               <h6 class=" font-italic mb-0"  style= " font-size:18px ;font-family: Arial, Helvetica, sans-serif;color:#fcd307;margin:18px 0px;padding:0px 30px 0px 0px; text-align: justify;" >The greatest trophy you can ever achieve in fitness is to see a part of yourself flourish, that would have otherwise remained undiscovered. </h6>
+            </div>
+            <h3 style="text-align: center;">My Certificates</h3>
+
+            <div class="slideshow-container">
+              
+              <div class="mySlides sfade">
+                <div class="snumbertext">1 / 2</div>
+                <img src="images/Certificate2.jpeg" style="width:100%">
+              </div>
+              <div class="mySlides sfade">
+                <div class="snumbertext" style="color: rgba(0,0,0,0.8);">2 / 2</div>
+                <img src="images/Certificate1.jpeg" style="width:100%">
+              </div>
+              
+              
+              
+              <a class="sprev" onclick="plusSlides(-1)">&#10094;</a>
+              <a class="snext" onclick="plusSlides(1)">&#10095;</a>
+              
+              </div>
+              <br>
+              
+              <div style="text-align:center">
+                <span class="sdot" onclick="currentSlide(1)"></span> 
+                <span class="sdot" onclick="currentSlide(2)"></span> 
+              </div>
+              
+            
           </div>
-          </div>
+
+
+
           <div class="col-md-6 pl-md-5 ftco-animate d-flex align-items-center">
             <div class="text pt-4 pt-md-0">
               <div class="heading-section mb-4">
@@ -328,6 +469,35 @@
         />
       </svg>
     </div>
+
+    <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+      
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+      
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("sdot");
+        if (n > slides.length) {slideIndex = 1}    
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" sactive", "");
+        }
+        slides[slideIndex-1].style.display = "block";  
+        dots[slideIndex-1].className += " sactive";
+      }
+      </script>
 
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
