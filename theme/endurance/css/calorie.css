@@ -171,7 +171,7 @@ input {
   border-bottom: none;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 700px) {
 }
 .sal-leaf-content table td {
   padding: 10px 15px;
