@@ -8781,10 +8781,10 @@ button.bg-dark:focus {
   margin-bottom: 0.5rem !important;
 }
 
-.ml-2,
+/* .ml-2,
 .mx-2 {
   margin-left: 0.5rem !important;
-}
+} */
 
 .m-3 {
   margin: 1rem !important;
@@ -12570,7 +12570,7 @@ textarea.form-control {
   opacity: 0;
   visibility: hidden;
   overflow: overlay;
-  -webkit-overflow-scrolling: touch
+  -webkit-overflow-scrolling: touch;
 }
 
 .bg-primary {
