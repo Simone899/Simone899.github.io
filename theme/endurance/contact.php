@@ -565,13 +565,13 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
       </div>
 
       <div class="footer-center">
-        <div>
-          <i class="fa fa-map-marker"></i>
-          <p>
-            <span>309 - Rupa Solitaire, Bldg. No. A - 1, Sector - 1</span>
-            Mahape, Navi Mumbai - 400710
-          </p>
-        </div>
+      <div>
+      <i class="fa fa-map-marker"></i>
+      <p>
+        <span>London</span>
+
+      </p>
+    </div>
 
         <div>
           <i class="fa fa-phone"></i>
