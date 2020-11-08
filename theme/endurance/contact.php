@@ -567,10 +567,10 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
       <div class="footer-center">
       <div>
       <i class="fa fa-map-marker"></i>
-      <p>
-        <span>London</span>
-
-      </p>
+      <p><span>4 Bravingtons Walk,  N1 9GA</span>
+					London
+					
+				</p>
     </div>
 
         <div>
@@ -587,11 +587,13 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
         </div>
       </div>
       <div class="footer-right">
-        <p class="footer-company-about">
-          <span>About the company</span>
-          We offer training and skill building courses across Technology,
-          Design, Management, Science and Humanities.
-        </p>
+      <p class="footer-company-about">
+        <span>About the company</span>
+        My mission is to teach anyone, anywhere how to respect the body that helps us live on. I will empower a
+        healthier you through incorporating rigorous training and having healthier nutrition in your daily
+        lifestyle.
+      
+    </p>
         <div class="footer-icons">
           <a href="#"><i class="fa fa-facebook"></i></a>
           <a href="#"><i class="fa fa-twitter"></i></a>
@@ -599,9 +601,9 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
           <a href="#"><i class="fa fa-linkedin"></i></a>
           <a href="#"><i class="fa fa-youtube"></i></a>
         </div>
-        <p class="footer-company-name" style="padding: 2em 0em 0em 0em">
-          &copy; 2020 Created by Bence Luo
-        </p>
+        <a href="https://bence899.github.io">
+				<p class="footer-company-name" style="padding: 2em 0em 0em 0em;">&copy; 2020 Created by Bence Luo</p>
+			</a>
       </div>
     </footer>
 
