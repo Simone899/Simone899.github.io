@@ -1,40 +1,8 @@
+<?php include 'contact-Form.php'; ?>
 <!DOCTYPE html>
-<?php
-
-$message_sent = false;
-
-if(isset($_POST['email']) && $_POST['email'] != ''){
-  if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-
-    //submit the form
-
-    $userName = $_POST['name'];
-    $userEmail = $_POST['email'];
-    $messageSubject = $_POST['subject'];
-    $message = $_POST['message'];
-
-    $mailto = "bence.luo899@gmail.com";
-
-    $body = "";
-
-    $body .= "From: ".$userName. "\r\n";
-    $body .= "From: ".$userEmail. "\r\n";
-    $body .= "From: ".$message. "\r\n";
-
-    // mail($mailto,$messageSubject,$body);
-
-    $message_sent = true;
-
-  }
-
-}
-
-?>
-
-
 <html lang="en">
   <head>
-    <title>Endurance - Free Bootstrap 4 Template by Colorlib</title>
+    <title>Contact | Simone Gubernati</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -222,6 +190,49 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
         display: inline-block;
         padding: 5px;
       }
+
+      /*css for alert messages*/
+
+      .alert-success{
+        z-index: 1;
+        background: #D4EDDA;
+        font-size: 18px;
+        padding: 20px 40px;
+        min-width: 420px;
+        position: fixed;
+        right: 0;
+        top: 10px;
+        border-left: 8px solid #3AD66E;
+        border-radius: 4px;
+        -webkit-animation: fadeinout 10s linear forwards;
+        animation: fadeinout 10s linear forwards;
+      }
+      
+
+      .alert-error{
+        z-index: 1;
+        background: #FFF3CD;
+        font-size: 18px;
+        padding: 20px 40px;
+        min-width: 420px;
+        position: fixed;
+        right: 0;
+        top: 10px;
+        border-left: 8px solid #FFA502;
+        border-radius: 4px;
+        -webkit-animation: fadeinout 10s linear forwards;
+        animation: fadeinout 10s linear forwards;
+      }
+
+      @-webkit-keyframes fadeinout {
+        0%,100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+
+      @keyframes fadeinout {
+        0%,100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
     </style>
   </head>
 
@@ -292,7 +303,7 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
         <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a href="index.html" class="nav-link">Home</a>
+              <a href="home.html" class="nav-link">Home</a>
             </li>
             <li class="nav-item">
               <a href="about.html" class="nav-link">About Me</a>
@@ -310,7 +321,7 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
               <a href="blog.html" class="nav-link">Blog</a>
             </li> -->
             <li class="nav-item active">
-              <a href="contact.html" class="nav-link">Contact</a>
+              <a href="contact.php" class="nav-link">Contact</a>
             </li>
           </ul>
         </div>
@@ -361,29 +372,13 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
       </div>
     </section>
 
-    <?php
-
-    if ($message_sent):
-    ?>
-    <h3></h3>
-
-    <div class="text-center title" style="padding: 50px;
-    margin: 50px;">
-      <h2 class="text-dark">
-        Thank you for your message,
-      </h2>
-      <p class="text-muted mb-5 max-width-450">
-        I will be in touch shortly
-      </p>
-    </div>
-
-    <?php
-    else:
-    ?>
+    <?php echo $alert; ?>
 
     <!-- Contact Start -->
     <section id="contact" class="contact">
-      <form action="contact.php" method="POST">
+    <h4 class="sent-notification"></h4>
+    <!-- action="contact-Form.php"  method="POST"-->
+      <form class= "contact-form" action="" method="post"  >
         <div class="display-table">
           <div class="display-content">
             <div class="container">
@@ -442,7 +437,7 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
               </div>
               <div class="row">
                 <div class="col-lg-12 mt-5 contact-form">
-                  <form id="contactForm">
+                  <form id="contactForm" id = "myForm" >
                     <div class="row">
                       <div class="col-lg-6 form-item">
                         <div class="form-group">
@@ -538,10 +533,6 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
         </div>
       </form>
     </section>
-
-    <?php
-    endif;
-    ?>
     <!--  Contact End  -->
 
     <footer class="footer-distributed">
@@ -565,13 +556,13 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
       </div>
 
       <div class="footer-center">
-      <div>
-      <i class="fa fa-map-marker"></i>
-      <p><span>4 Bravingtons Walk,  N1 9GA</span>
-					London
-					
-				</p>
-    </div>
+        <div>
+          <i class="fa fa-map-marker"></i>
+          <p>
+            <span>309 - Rupa Solitaire, Bldg. No. A - 1, Sector - 1</span>
+            Mahape, Navi Mumbai - 400710
+          </p>
+        </div>
 
         <div>
           <i class="fa fa-phone"></i>
@@ -587,13 +578,11 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
         </div>
       </div>
       <div class="footer-right">
-      <p class="footer-company-about">
-        <span>About the company</span>
-        My mission is to teach anyone, anywhere how to respect the body that helps us live on. I will empower a
-        healthier you through incorporating rigorous training and having healthier nutrition in your daily
-        lifestyle.
-      
-    </p>
+        <p class="footer-company-about">
+          <span>About the company</span>
+          We offer training and skill building courses across Technology,
+          Design, Management, Science and Humanities.
+        </p>
         <div class="footer-icons">
           <a href="#"><i class="fa fa-facebook"></i></a>
           <a href="#"><i class="fa fa-twitter"></i></a>
@@ -601,9 +590,9 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
           <a href="#"><i class="fa fa-linkedin"></i></a>
           <a href="#"><i class="fa fa-youtube"></i></a>
         </div>
-        <a href="https://bence899.github.io">
-				<p class="footer-company-name" style="padding: 2em 0em 0em 0em;">&copy; 2020 Created by Bence Luo</p>
-			</a>
+        <p class="footer-company-name" style="padding: 2em 0em 0em 0em">
+          &copy; 2020 Created by Bence Luo
+        </p>
       </div>
     </footer>
 
@@ -631,7 +620,12 @@ if(isset($_POST['email']) && $_POST['email'] != ''){
         />
       </svg>
     </div>
-
+    <script type="text/javascript">
+    if(window.history.replaceState){
+      window.history.replaceState(null, null, window.location.href);
+    }
+    </script>
+    
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
     <script src="js/popper.min.js"></script>

@@ -1,33 +1,43 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
 
-// echo "<pre>";
+require_once 'phpmailer/Exception.php';
+require_once 'phpmailer/PHPMailer.php';
+require_once 'phpmailer/SMTP.php';
 
-// print_r($_POST);
+$mail = new PHPMailer(true);
 
-// echo'</pre>';
+$alert = '';
 
 if(isset($_POST['submit'])){
-	$message_sent = false;
-	if(filter_var($_POST['email'],FILTER_VALIDATE_EMAIL)){
-		$name = $_POST['name'];
-	    $subject = $_POST['subject'];
-	    $mailFrom = $_POST['mail'];
-	    $message = $_POST['message'];
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $message = $_POST['message'];
 
-	    $mailTo = "bence.luo899@gmail.com";
-	    $headers = "From: ".$mailFrom;
-	    $txt = "You have received an email from".$name.".\n\n".$message;
+  try{
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'simonegubernati63@gmail.com'; // Gmail address which you want to use as SMTP server
+    $mail->Password = 'Water89900'; // Gmail address Password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port = '587';
 
-	    mail($mailTo, $subject, $txt, $headers);
+    $mail->setFrom('simonegubernati63@gmail.com'); // Gmail address which you used as SMTP server
+    $mail->addAddress('simonegubernati63@gmail.com'); // Email address where you want to receive emails (you can use any of your gmail address including the gmail address which you used as SMTP server)
 
-	    header("Location: contact.html?mailsend");
+    $mail->isHTML(true);
+    $mail->Subject = 'Message Received (Contact Page)';
+    $mail->Body = "<h3>Name : $name <br>Email: $email <br>Message : $message</h3>";
 
-	    $message_sent = true;
-
-
-	}
-    
-
+    $mail->send();
+    $alert = '<div class="alert-success">
+                 <span>Message Sent! Thank you for contacting us.</span>
+                </div>';
+  } catch (Exception $e){
+    $alert = '<div class="alert-error">
+                <span>'.$e->getMessage().'</span>
+              </div>';
+  }
 }
-
 ?>
